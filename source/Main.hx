@@ -9,6 +9,7 @@ import debug.FPSCounter;
 import flixel.graphics.FlxGraphic;
 import flixel.FlxGame;
 import flixel.FlxState;
+import flixel.math.FlxRandom;
 import haxe.io.Path;
 import openfl.Assets;
 import openfl.Lib;
@@ -166,6 +167,8 @@ class Main extends Sprite
 		var path:String;
 		var callStack:Array<StackItem> = CallStack.exceptionStack(true);
 		var dateNow:String = Date.now().toString();
+		var randomInator3000:Int = FlxG.random.int(0, 2);
+		var coolTexts:String = 'Oops, i'm dying :skull:';
 
 		dateNow = dateNow.replace(" ", "_");
 		dateNow = dateNow.replace(":", "'");
@@ -182,8 +185,17 @@ class Main extends Sprite
 					Sys.println(stackItem);
 			}
 		}
+		switch(randomInator3000)
+	    {
+			case 0:
+				coolTexts = 'It crashed... don't worry it's not your fault.';
+			case 1:
+				coolTexts = 'Maybe if you get a better yee yee ass RAM it wont crash, fam.';
+			case 2:
+				coolTexts = 'If you did something, then fix the something.';
+		}
 
-		errMsg += "\nUncaught Error: " + e.error + "\nPlease report this error to the GitHub page: https://github.com/ShadowMario/FNF-PsychEngine\n\n> Crash Handler written by: sqirra-rng";
+		errMsg += coolTexts + "\nUncaught Error: " + e.error + "\nPlease report this error to the GitHub page: https://github.com/ShadowMario/FNF-PsychEngine\n\n> Crash Handler written by: sqirra-rng";
 
 		if (!FileSystem.exists("./crash/"))
 			FileSystem.createDirectory("./crash/");

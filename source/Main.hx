@@ -168,7 +168,7 @@ class Main extends Sprite
 		var callStack:Array<StackItem> = CallStack.exceptionStack(true);
 		var dateNow:String = Date.now().toString();
 		var randomInator3000:Int = FlxG.random.int(0, 2);
-		var coolTexts:String = 'Oops, i'm dying :skull:';
+		var coolTexts:String = 'Oops imma dying :skull:';
 
 		dateNow = dateNow.replace(" ", "_");
 		dateNow = dateNow.replace(":", "'");
@@ -185,10 +185,11 @@ class Main extends Sprite
 					Sys.println(stackItem);
 			}
 		}
+		
 		switch(randomInator3000)
 	    {
 			case 0:
-				coolTexts = 'It crashed... don't worry it's not your fault.';
+				coolTexts = 'It crashed... dont worry its not your fault.';
 			case 1:
 				coolTexts = 'Maybe if you get a better yee yee ass RAM it wont crash, fam.';
 			case 2:
